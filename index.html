@@ -1,0 +1,160 @@
+<!--
+ * @Author: qwelz
+ * @Date: 2021-03-18 14:57:38
+ * @LastEditors: qwelz
+ * @LastEditTime: 2021-03-18 23:57:47
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>抽奖程序</title>
+        <link rel="stylesheet" href="./css/bootstrap.min.css" />
+        <link rel="stylesheet" href="./css/main.css" />
+    </head>
+    <body>
+        <nav class="navbar navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">抽奖程序</a>
+        </nav>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <!-- content -->
+                <div class="content row" style="min-width: 300px">
+                    <!-- 抽奖转盘 -->
+                    <div id="boxes-container-div" class="col-md-9">
+                        <button
+                            id="settings-button"
+                            class="btn btn-lg btn-primary"
+                            data-toggle="modal"
+                            data-target="#settings-modal"
+                        >
+                            设置抽奖信息
+                        </button>
+                        <button id="start-button" class="btn btn-lg btn-danger">开始抽奖</button>
+                        <button id="on-selecting-button" class="btn btn-lg btn-danger">
+                            <span class="spinner-grow spinner-grow-sm" role="status"></span>
+                            <span class="description">正在抽取三等奖</span>
+                        </button>
+                    </div>
+                    <!-- /抽奖转盘 -->
+
+                    <!-- 获奖名单 -->
+                    <div class="col-md-3">
+                        <div class="accordion" id="list-of-winners-accordion">
+                            <!-- card -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2 class="mb-0">
+                                        <button
+                                            class="btn btn-link btn-block text-left collapsed"
+                                            type="button"
+                                            data-toggle="collapse"
+                                            data-target="#winners-3"
+                                        >
+                                            三等奖
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="winners-3" class="collapse">
+                                    <div class="card-body"></div>
+                                </div>
+                            </div>
+                            <!-- card -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2 class="mb-0">
+                                        <button
+                                            class="btn btn-link btn-block text-left collapsed"
+                                            type="button"
+                                            data-toggle="collapse"
+                                            data-target="#winners-2"
+                                        >
+                                            二等奖
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="winners-2" class="collapse">
+                                    <div class="card-body"></div>
+                                </div>
+                            </div>
+                            <!-- card -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2 class="mb-0">
+                                        <button
+                                            class="btn btn-link btn-block text-left collapsed"
+                                            type="button"
+                                            data-toggle="collapse"
+                                            data-target="#winners-1"
+                                        >
+                                            一等奖
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="winners-1" class="collapse">
+                                    <div class="card-body"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /获奖名单 -->
+                </div>
+                <!-- /content -->
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+
+        <!-- modal -->
+        <div class="modal fade" id="settings-modal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">设置抽奖信息</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="people-list-textarea" class="col-form-label">人员信息</label>
+                                <textarea
+                                    class="form-control"
+                                    id="people-list-textarea"
+                                    placeholder="每行一个人名"
+                                    rows="5"
+                                    required
+                                ></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="winners-3-num-input" class="col-form-label">三等奖人数</label>
+                                <input type="text" class="form-control" id="winners-3-num-input" value="0" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="winners-2-num-input" class="col-form-label">二等奖人数</label>
+                                <input type="text" class="form-control" id="winners-2-num-input" value="0" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="winners-1-num-input" class="col-form-label">一等奖人数</label>
+                                <input type="text" class="form-control" id="winners-1-num-input" value="0" required />
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">取消</button>
+                            <button type="submit" class="btn btn-success">确定</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- /modal -->
+    </body>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/display-person-boxes.js"></script>
+    <script src="./js/main.js"></script>
+</html>
